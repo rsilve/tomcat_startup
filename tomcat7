@@ -1,0 +1,28 @@
+#!/bin/sh
+
+CATALINA_HOME=/home/robert/tomcat7
+
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CATALINA_HOME/lib
+export LD_LIBRARY_PATH
+
+
+case $1 in
+	undeploy)
+	echo "Trying to undeploy:"; ls -a1 $CATALINA_HOME/webapps/$2;
+	rm -rf $CATALINA_HOME/webapps/$2 $CATALINA_HOME/Catalina/localhost/$2
+	echo "Undeploy completed"
+;;
+	start)
+cd $CATALINA_HOME
+./bin/jsvc -cp ./bin/bootstrap.jar:./bin/tomcat-juli.jar \
+      -pidfile ./pid \
+      -outfile ./logs/catalina.out -errfile ./logs/catalina.err \
+       org.apache.catalina.startup.Bootstrap
+echo "Tomcat 7 started"
+;;
+	stop)
+cd $CATALINA_HOME
+./bin/jsvc -pidfile ./pid -stop org.apache.catalina.startup.Bootstrap
+echo "Tomcat 7 stopped"
+;;
+esac
