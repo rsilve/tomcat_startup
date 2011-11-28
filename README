@@ -1,0 +1,3 @@
+usage :
+
+tomcat7 start|stop|undeploy pattern
