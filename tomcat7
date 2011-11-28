@@ -7,6 +7,10 @@ export LD_LIBRARY_PATH
 
 
 case $1 in
+        status)
+cd $CATALINA_HOME
+ps -p `head ./pid` -o comm= && echo "running" || echo "Stopped"
+;;
 	undeploy)
 	echo "Trying to undeploy:"; ls -a1 $CATALINA_HOME/webapps/$2;
 	rm -rf $CATALINA_HOME/webapps/$2 $CATALINA_HOME/Catalina/localhost/$2
