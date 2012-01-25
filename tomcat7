@@ -18,7 +18,7 @@ ps -p `head ./pid` -o comm= && echo "running" || echo "Stopped"
 	undeploy)
 	echo "Trying to undeploy:"; 
 	ls -d1 $CATALINA_HOME/work/Catalina/localhost/$2;
-	rm -rf $CATALINA_HOME/webapps/$2 $CATALINA_HOME/work/Catalina/localhost/$2
+	rm -rf $CATALINA_HOME/webapps/$2* $CATALINA_HOME/work/Catalina/localhost/$2
 	echo "Undeploy completed"
 ;;
 	start)
