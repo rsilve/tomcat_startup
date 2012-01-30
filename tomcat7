@@ -11,7 +11,11 @@ case $1 in
 cd $CATALINA_HOME
 ps -p `head ./pid` -o comm= && echo "running" || echo "Stopped"
 ;;
-	deploy)
+       deployed)
+        echo "==> Webapps deployed"
+        ls -1 $CATALINA_HOME/webapps/ | grep -v "war"
+;;
+ 	deploy)
 	cp $2 $CATALINA_HOME/webapps/$3
 	echo "Deploy succesful"
 ;;
