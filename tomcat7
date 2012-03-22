@@ -16,7 +16,10 @@ ps -p `head ./pid` -o comm= && echo "running" || echo "Stopped"
         ls -1 $CATALINA_HOME/webapps/ | grep -v "war"
 ;;
  	deploy)
-	cp $2 $CATALINA_HOME/webapps/$3
+	dest=$3
+	dest=${dest:-`basename $2`};
+	 
+	cp $2 $CATALINA_HOME/webapps/$dest
 	echo "Deploy succesful"
 ;;
 	undeploy)
