@@ -1,3 +1,6 @@
 usage :
 
-tomcat7 start|stop|status|undeploy pattern
+tomcat7 start|stop|status|undeploy|deploy|deployed
+
+   deploy path/to/war [webapp.war]
+   undeploy webapp
