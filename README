@@ -1,6 +1,6 @@
 usage :
 
-tomcat7 start|stop|status|undeploy|deploy|deployed
+tomcat7 start|stop|status|undeploy|deploy|deployed|log
 
    deploy path/to/war [webapp.war]
    undeploy webapp

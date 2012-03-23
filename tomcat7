@@ -42,4 +42,7 @@ cd $CATALINA_HOME
 ./bin/jsvc -pidfile ./pid -stop org.apache.catalina.startup.Bootstrap
 echo "Tomcat 7 stopped"
 ;;
+	log) 
+tail -f $CATALINA_HOME/log/catalina.out
+;;
 esac
