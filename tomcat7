@@ -43,6 +43,6 @@ cd $CATALINA_HOME
 echo "Tomcat 7 stopped"
 ;;
 	log) 
-tail -f $CATALINA_HOME/log/catalina.out
+tail -f $CATALINA_HOME/logs/catalina.out
 ;;
 esac
