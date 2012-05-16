@@ -28,6 +28,16 @@ ps -p `head ./pid` -o comm= && echo "running" || echo "Stopped"
 	rm -rf $CATALINA_HOME/webapps/$2* $CATALINA_HOME/work/Catalina/localhost/$2
 	echo "Undeploy completed"
 ;;
+	debug)
+cd $CATALINA_HOME
+./bin/jsvc -cp ./bin/bootstrap.jar:./bin/tomcat-juli.jar \
+	-Xdebug -Xrunjdwp:transport=dt_socket,address=8002,server=y,suspend=n \
+      -procname tomcat7 \
+      -pidfile ./pid \
+      -outfile ./logs/catalina.out -errfile ./logs/catalina.err \
+       org.apache.catalina.startup.Bootstrap
+echo "Tomcat 7 debug started"
+;;
 	start)
 cd $CATALINA_HOME
 ./bin/jsvc -cp ./bin/bootstrap.jar:./bin/tomcat-juli.jar \
